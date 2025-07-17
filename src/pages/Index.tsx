@@ -51,103 +51,72 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div className="space-y-8 animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Understanding People to Drive Business Success
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Kuzatribe helps organizations succeed through deep insights into human behavior, preferences, and market dynamics with cutting-edge research methodologies.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  variant="cta" 
-                  size="lg"
-                  onClick={scrollToForm}
-                  className="text-lg px-8 py-4"
-                >
-                  Request a Consultation
-                  <ArrowRight className="ml-2" />
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="text-lg px-8 py-4 border-primary text-primary hover:bg-primary hover:text-white"
-                >
-                  Explore Solutions
-                </Button>
-              </div>
-            </div>
-            
-            {/* Hero Image */}
-            <div className="relative animate-scale-in">
-              <div className="relative rounded-2xl overflow-hidden shadow-card">
-                <img 
-                  src="/src/assets/hero-workspace.jpg"
-                  alt="Team analyzing market research data in modern workspace"
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute bottom-6 left-6 bg-accent text-white px-6 py-4 rounded-lg shadow-lg">
-                  <div className="text-3xl font-bold">87%</div>
-                  <div className="text-sm">Improved decision accuracy</div>
-                </div>
-              </div>
-            </div>
+      <section 
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBackground})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-accent/90 to-accent/70"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="animate-fade-in">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              Africa's Leading <br />
+              <span className="text-primary-glow">Market Research</span> &<br />
+              Community Management Firm
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+              We turn data and community networks into your competitive edge across Africa's most dynamic markets.
+            </p>
+            <Button 
+              variant="hero" 
+              size="lg" 
+              onClick={scrollToForm}
+              className="text-lg px-8 py-4 h-auto"
+            >
+              Book Your Free Discovery Call
+              <ArrowRight className="ml-2" />
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Solutions Section */}
-      <section className="py-20 bg-background">
+      {/* Problem Section */}
+      <section className="py-20 bg-gradient-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Solutions That Drive Results
+              Why Most Market Research Falls Short
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our research and intelligence services are designed to help you make informed decisions, identify new opportunities, and create strategies that resonate with your target audience.
+              Traditional market research approaches miss the nuances of African markets
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: <Search className="h-12 w-12 text-primary" />,
-                title: "Market Research",
-                description: "Comprehensive market analysis, consumer insights, and competitive intelligence to identify opportunities and threats.",
-                items: ["Consumer Behavior Analysis", "Market Segmentation", "Competitive Benchmarking"]
-              },
-              {
-                icon: <Users className="h-12 w-12 text-primary" />,
-                title: "Customer Insights", 
-                description: "Deep understanding of your customers' needs, preferences, and pain points to improve product-market fit.",
-                items: ["Focus Groups", "In-depth Interviews", "Customer Journey Mapping"]
-              },
-              {
-                icon: <TrendingUp className="h-12 w-12 text-primary" />,
-                title: "Growth Strategy",
-                description: "Data-driven strategies to accelerate growth, optimize marketing, and improve customer retention.",
-                items: ["Pricing Analysis", "Market Entry Strategy", "Brand Development"]
-              },
-              {
                 icon: <BarChart3 className="h-12 w-12 text-primary" />,
-                title: "Analytics & Reporting",
-                description: "Transform complex data into actionable insights through advanced analytics and clear reporting.",
-                items: ["Predictive Analytics", "Data Visualization", "Impact Measurement"]
+                title: "Inaccurate Regional Data",
+                description: "Outdated or incomplete data on regional demand patterns leads to missed opportunities and failed market entries."
+              },
+              {
+                icon: <Network className="h-12 w-12 text-primary" />,
+                title: "Limited Decision-Maker Access", 
+                description: "No established pathways to reach the right decision-makers, slowing down sales cycles and partnerships."
+              },
+              {
+                icon: <Target className="h-12 w-12 text-primary" />,
+                title: "Sales Funnel Blindspots",
+                description: "Unclear conversion paths and buyer personas result in inefficient marketing spend and delayed growth."
               }
             ].map((item, index) => (
-              <Card key={index} className="p-8 text-center hover:shadow-card transition-all duration-300 hover:-translate-y-1 border-0">
-                <div className="mx-auto mb-4">{item.icon}</div>
-                <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
-                <p className="text-muted-foreground mb-4">{item.description}</p>
-                <ul className="text-sm text-muted-foreground space-y-1 text-left">
-                  {item.items.map((listItem, idx) => (
-                    <li key={idx}>• {listItem}</li>
-                  ))}
-                </ul>
+              <Card key={index} className="text-center shadow-card border-0 animate-scale-in" style={{ animationDelay: `${index * 0.2}s` }}>
+                <CardHeader>
+                  <div className="mx-auto mb-4">{item.icon}</div>
+                  <CardTitle className="text-xl">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </CardContent>
               </Card>
             ))}
           </div>
